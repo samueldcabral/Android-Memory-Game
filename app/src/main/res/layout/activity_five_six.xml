@@ -5,18 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@drawable/splash_style"
+    android:background="@drawable/pattern_repeating"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvClicked"
-        android:text="Clicked = 0"
+        android:text="You have found 0 pairs!"
+        android:textSize="35sp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/courgette"
+        android:layout_marginTop="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <LinearLayout
+        android:layout_marginTop="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

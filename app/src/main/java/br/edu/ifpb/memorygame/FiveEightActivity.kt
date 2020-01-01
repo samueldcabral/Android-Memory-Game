@@ -72,6 +72,7 @@ class FiveEightActivity : AppCompatActivity() {
 
         var clicked: Int = 0
         var lastClicked: MutableList<Int> = ArrayList<Int>()
+        var pairsFound : Int = 0
 
         for ((index, button) in buttons.withIndex()) {
             button.text = "BACK"
@@ -85,7 +86,7 @@ class FiveEightActivity : AppCompatActivity() {
                     }
 
                     clicked++
-                    this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                    //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                 }
 
                 if (clicked == 1) {
@@ -93,7 +94,7 @@ class FiveEightActivity : AppCompatActivity() {
                     this.handler.postDelayed({
                         buttons[lastClicked[0]].text = "BACK"
                         clicked = 0
-                        this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                        //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                         lastClicked = ArrayList<Int>()
                     }, 3000)
 
@@ -106,7 +107,7 @@ class FiveEightActivity : AppCompatActivity() {
                             buttons[lastClicked[0]].text = "BACK"
                             button.text = "BACK"
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                            //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                             lastClicked = ArrayList<Int>()
                         }, 3000)
 
@@ -115,7 +116,7 @@ class FiveEightActivity : AppCompatActivity() {
 
                         this.handler.postDelayed({
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                            //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                             buttons[lastClicked[0]].text = "BACK"
                             button.text = "BACK"
                             lastClicked = ArrayList<Int>()
@@ -132,7 +133,7 @@ class FiveEightActivity : AppCompatActivity() {
                             buttons[lastClicked[1]].text = "BACK"
                             button.text = "BACK"
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                            //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                             lastClicked = ArrayList<Int>()
                         }, 3000)
 
@@ -141,7 +142,7 @@ class FiveEightActivity : AppCompatActivity() {
 
                         this.handler.postDelayed({
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
+                            //this.tvClicked.text = "Clicked = ${clicked} | last clicked ${lastClicked}"
                             buttons[lastClicked[0]].text = "BACK"
                             buttons[lastClicked[1]].text = "BACK"
                             button.text = "BACK"
@@ -155,6 +156,7 @@ class FiveEightActivity : AppCompatActivity() {
                     this.handler.removeCallbacksAndMessages(null);
 
                     if (button.text == array[lastClicked[2]]) {
+                        pairsFound++
                         button.text = "ACHOU"
                         buttons[lastClicked[1]].text = "ACHOU"
                         buttons[lastClicked[0]].text = "ACHOU"
@@ -172,13 +174,13 @@ class FiveEightActivity : AppCompatActivity() {
 
                         clicked = 0
                         lastClicked = ArrayList<Int>()
-                        this.tvClicked.text = "Clicked = ${clicked}"
+                        this.tvClicked.text = "You have found ${pairsFound} pairs!"
                     } else {
                         areButtonsClickable(buttons, false)
 
                         this.handler.postDelayed({
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} ${button.text}"
+                            //this.tvClicked.text = "Clicked = ${clicked} ${button.text}"
                             buttons[lastClicked[1]].text = "BACK"
                             buttons[lastClicked[0]].text = "BACK"
                             buttons[lastClicked[2]].text = "BACK"

@@ -25,24 +25,37 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        var productsArr = intent.getBundleExtra("productArr") as HashMap<Long, String>
+        var productsArr = intent.extras?.get("productArr") as HashMap<Long, String>
+        var randomList : MutableList<Long> = mutableListOf()
+
+        for(product in productsArr) {
+            randomList.add(product.key)
+        }
+
+        randomList.shuffle()
+        
         this.btGoTo45 = findViewById(R.id.bt_main_goto45)
         this.btGoTo56 = findViewById(R.id.bt_main_goto56)
         this.btGoTo58 = findViewById(R.id.bt_main_goto58)
 
         this.btGoTo45.setOnClickListener{
-            val it = Intent(this, FourFiveActivity::class.java)
+            val it = Intent(this, InstructionActivity::class.java)
+            it.putExtra("escolha", "2")
             startActivity(it)
 //            finish()
         }
 
         this.btGoTo56.setOnClickListener{
-            val it = Intent(this, FiveSixActivity::class.java)
+            val it = Intent(this, InstructionActivity::class.java)
+            it.putExtra("escolha", "3")
             startActivity(it)
 //            finish()
         }
 
         this.btGoTo58.setOnClickListener{
-            val it = Intent(this, FiveEightActivity::class.java)
+            val it = Intent(this, InstructionActivity::class.java)
+            it.putExtra("escolha", "4")
             startActivity(it)
 //            finish()
         }

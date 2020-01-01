@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import br.edu.ifpb.memorygame.network.Api
+import br.edu.ifpb.memorygame.retrofit_model.Product
 import br.edu.ifpb.memorygame.retrofit_model.Products
 import kotlinx.android.synthetic.main.activity_four_five.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,13 +20,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 class FourFiveActivity : AppCompatActivity() {
     private lateinit var tvClicked : TextView
     private lateinit var handler : Handler
+    private lateinit var productsArr : MutableList<Product>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four_five)
 
+//        getProducts()
+
         this.tvClicked = findViewById(R.id.tvClicked)
         this.handler = Handler()
+
+//        if(productsArr.size != 0) {
+//            for(product in productsArr){
+//                Log.e("APP_MEMORY", "Produto = ${product.id}")
+//            }
+//        }
 
         val array : MutableList<String> = mutableListOf("Marron 5", "John Mayer", "Arctic Monkeys", "Imagine Dragons", "The Strokes",
             "Kings of Leon", "Foo Fighters", "Queen", "The Killers", "Paramore",
@@ -38,6 +48,7 @@ class FourFiveActivity : AppCompatActivity() {
 
         var clicked : Int = 0
         var lastClicked : Int = -1
+        var pairsFound : Int = 0
 
         for((index,button) in buttons.withIndex()) {
             button.text = "BACK"
@@ -51,7 +62,7 @@ class FourFiveActivity : AppCompatActivity() {
                     }
 
                     clicked++
-                    this.tvClicked.text = "Clicked = ${clicked}"
+                    //this.tvClicked.text = "Clicked = ${clicked}"
                 }
 
                 if(clicked == 1) {
@@ -59,7 +70,7 @@ class FourFiveActivity : AppCompatActivity() {
                     this.handler.postDelayed({
                         buttons[lastClicked].text = "BACK"
                         clicked = 0
-                        this.tvClicked.text = "Clicked = ${clicked}"
+                        //this.tvClicked.text = "Clicked = ${clicked}"
                     }, 3000)
                 }
 
@@ -67,18 +78,19 @@ class FourFiveActivity : AppCompatActivity() {
                     this.handler.removeCallbacksAndMessages(null);
 
                     if(button.text == array[lastClicked]){
+                        pairsFound++
                         button.text = "ACHOU"
                         button.isClickable = false
                         buttons[lastClicked].text = "ACHOU"
                         buttons[lastClicked].isClickable = false
                         clicked = 0
-                        this.tvClicked.text = "Clicked = ${clicked}"
+                        this.tvClicked.text = "You have found ${pairsFound} pairs!"
                     }else {
                         areButtonsClickable(buttons, false)
 
                         this.handler.postDelayed({
                             clicked = 0
-                            this.tvClicked.text = "Clicked = ${clicked} ${button.text}"
+                            //this.tvClicked.text = "Clicked = ${clicked} ${button.text}"
                             buttons[lastClicked].text = "BACK"
                             button.text = "BACK"
                             areButtonsClickable(buttons, true)
@@ -89,7 +101,7 @@ class FourFiveActivity : AppCompatActivity() {
             }
         }
 
-        getProducts()
+
     }
     fun areButtonsClickable(buttons : Array<Button>, status : Boolean) {
 
@@ -106,46 +118,46 @@ class FourFiveActivity : AppCompatActivity() {
 
     }
 
-    fun getProducts() {
-
-        val BASE_URL = "https://shopicruit.myshopify.com/admin/"
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service = retrofit.create(Api::class.java)
-
-        val callback = service.getComics("1", "c32313df0d0ef512ca64d5b336a0d7c6")
-
-        callback.enqueue(object : Callback<Products> {
-
-            override fun onFailure(call: Call<Products>, t: Throwable) {
-                Log.e("APP_MEMORY", "On failure ${t}")
-            }
-
-            override fun onResponse(call: Call<Products>, response: Response<Products>) {
-
-                if(response.isSuccessful) {
-                    if(response.body() != null) {
-                        var response = response.body()
-                        var productsArr = response!!.products
-
-                        Log.e("APP_MEMORY", "Deu certo ${response}")
-
-                        for(product in productsArr){
-                            Log.e("APP_MEMORY", "Produto = ${product.id}")
-                        }
-
-                    }else {
-                        Log.e("APP_MEMORY", "response.body() ==  (is) null")
-                    }
-                }else {
-                    Log.e("APP_MEMORY", "response.isSuccessful is not TRUE")
-                }
-            }
-
-        })
-    }
+//    fun getProducts() {
+//
+//        val BASE_URL = "https://shopicruit.myshopify.com/admin/"
+//
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val service = retrofit.create(Api::class.java)
+//
+//        val callback = service.getComics("1", "c32313df0d0ef512ca64d5b336a0d7c6")
+//
+//        callback.enqueue(object : Callback<Products> {
+//
+//            override fun onFailure(call: Call<Products>, t: Throwable) {
+//                Log.e("APP_MEMORY", "On failure ${t}")
+//            }
+//
+//            override fun onResponse(call: Call<Products>, response: Response<Products>) {
+//
+//                if(response.isSuccessful) {
+//                    if(response.body() != null) {
+//                        var response = response.body()
+//                        productsArr = response!!.products
+//
+//                        Log.e("APP_MEMORY", "Deu certo ${response}")
+//
+////                        for(product in productsArr){
+////                            Log.e("APP_MEMORY", "Produto = ${product.id}")
+////                        }
+//
+//                    }else {
+//                        Log.e("APP_MEMORY", "response.body() ==  (is) null")
+//                    }
+//                }else {
+//                    Log.e("APP_MEMORY", "response.isSuccessful is not TRUE")
+//                }
+//            }
+//
+//        })
+//    }
 }

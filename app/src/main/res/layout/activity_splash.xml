@@ -5,7 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/splash_style"
     tools:context=".SplashActivity">
 
+    <ImageView
+        android:id="@+id/ivSplashLogo"
+        android:background="@drawable/logo"
+        android:layout_width="330sp"
+        android:layout_height="160sp"/>
+
+    <ImageView
+        android:id="@+id/ivSplashLogoCerebro"
+        android:background="@drawable/logo2"
+        android:layout_marginTop="30sp"
+        android:layout_width="170sp"
+        android:layout_height="200sp"/>
 </LinearLayout>

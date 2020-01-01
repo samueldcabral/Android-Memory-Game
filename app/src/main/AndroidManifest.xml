@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".FourFiveActivity"></activity>
+        <activity android:name=".InstructionActivity"></activity>
+        <activity android:name=".FourFiveActivity" />
         <activity android:name=".FiveEightActivity" />
         <activity android:name=".FiveSixActivity" />
         <activity android:name=".SplashActivity">
@@ -24,6 +25,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
