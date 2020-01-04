@@ -7,6 +7,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
@@ -32,6 +33,9 @@ class FourFiveActivity : AppCompatActivity() {
     private lateinit var imageButton : ImageButton
     private lateinit var ibHome : ImageButton
     private lateinit var ibRetry : ImageButton
+    private lateinit var buttons : Array<ImageButton>
+    private lateinit var productList : HashMap<Long,String>
+    private lateinit var anim2 : Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +46,7 @@ class FourFiveActivity : AppCompatActivity() {
         this.ibHome = findViewById(R.id.ib_45_home)
         this.ibRetry = findViewById(R.id.ib_45_retry)
         this.handler = Handler()
-        val anim2 = AnimationUtils.loadAnimation(this, R.anim.anim2)
+        this.anim2 = AnimationUtils.loadAnimation(this, R.anim.anim2)
 
         ibHome.setOnClickListener{
             val it = Intent(this, MainActivity::class.java)
@@ -50,30 +54,33 @@ class FourFiveActivity : AppCompatActivity() {
         }
 
         ibRetry.setOnClickListener{
-//            resetGame()
+            resetGame()
         }
 
+        this.buttons = arrayOf(ib_45_1, ib_45_2, ib_45_3, ib_45_4, ib_45_5,
+                        ib_45_6, ib_45_7, ib_45_8, ib_45_9, ib_45_10,
+                        ib_45_11, ib_45_12, ib_45_13, ib_45_14, ib_45_15,
+                        ib_45_16, ib_45_17, ib_45_18, ib_45_19, ib_45_20)
 
-        var productList = intent.extras?.get("productArr") as HashMap<Long, String>
-//        var randomList : MutableList<Long> = mutableListOf()
-//
-        Log.i("APP_MEMORY", "Here you go")
+        this.productList = intent.extras?.get("productArr") as HashMap<Long, String>
+        var array = shuffleGame(productList)
 
+        newGame(buttons, array, productList, anim2)
+    }
 
-//
-//        randomList.shuffle()
+    fun resetGame() {
+        var array = shuffleGame(productList)
+        newGame(buttons, array, productList, anim2)
+    }
 
-//        val array : MutableList<String> = mutableListOf("Marron 5", "John Mayer", "Arctic Monkeys", "Imagine Dragons", "The Strokes",
-//            "Kings of Leon", "Foo Fighters", "Queen", "The Killers", "Paramore",
-//            "Marron 5", "John Mayer", "Arctic Monkeys", "Imagine Dragons", "The Strokes",
-//            "Kings of Leon", "Foo Fighters", "Queen", "The Killers", "Paramore")
+    fun shuffleGame(productList : HashMap<Long, String>) : MutableList<Long>{
 
         val array : MutableList<Long> = mutableListOf()
         var index = 0
 
         for(product in productList) {
             Picasso.get().load(product.value).into(this.imageButton)
-            Log.i("APP_MEMORY", "Passou aqui ${index}")
+
             if(index < 10) {
                 array.add(product.key)
                 array.add(product.key)
@@ -81,47 +88,47 @@ class FourFiveActivity : AppCompatActivity() {
             index++
         }
 
-//        for(x in 0..9) {
-//            array.add(productList.key)
-//            array.add(randomList[x])
-//        }
-
         array.shuffle()
 
-        val buttons : Array<ImageButton> = arrayOf(ib_45_1, ib_45_2, ib_45_3, ib_45_4, ib_45_5,
-                                            ib_45_6, ib_45_7, ib_45_8, ib_45_9, ib_45_10,
-                                            ib_45_11, ib_45_12, ib_45_13, ib_45_14, ib_45_15,
-                                            ib_45_16, ib_45_17, ib_45_18, ib_45_19, ib_45_20)
+        return array
+    }
 
+    fun newGame(buttons : Array<ImageButton>, array : MutableList<Long>, productList : HashMap<Long, String>, anim2 : Animation) {
         var clicked : Int = 0
         var lastClicked : Int = -1
         var pairsFound : Int = 0
 
+        for(button in buttons) {
+            button.setImageBitmap(null)
+        }
+
+        this.tvClicked.text = "You have found ${pairsFound} pairs!"
+
         for((index,button) in buttons.withIndex()) {
-//            button.text = "BACK"
-//            button.textSize = 0.0F
+
             button.contentDescription = "BACK"
+            button.setBackgroundResource(R.drawable.cardback_small)
 
             button.setOnClickListener {
+
                 if(button.contentDescription == "BACK" && clicked < 2){
+
                     button.contentDescription = array[index].toString()
                     button.setBackgroundResource(R.drawable.cardfront2_small)
+
                     Picasso.get()
-                            .load(productList.get(array[index]))
-                            .noFade()
-
-                            .centerCrop(Gravity.TOP)
+                        .load(productList.get(array[index]))
+                        .noFade()
+                        .centerCrop(Gravity.TOP)
                         .fit()
-                            .into(button)
+                        .into(button)
 
-//                    button.setImageDrawable(productList.get(array[index])!!.drawable)
 
                     if(clicked == 0) {
                         lastClicked = index
                     }
 
                     clicked++
-                    //this.tvClicked.text = "Clicked = ${clicked}"
                 }
 
                 if(clicked == 1) {
@@ -131,7 +138,6 @@ class FourFiveActivity : AppCompatActivity() {
                         button.setBackgroundResource(R.drawable.cardback_small)
                         buttons[lastClicked].setImageBitmap(null)
                         clicked = 0
-                        //this.tvClicked.text = "Clicked = ${clicked}"
                     }, 3000)
                 }
 
@@ -139,43 +145,52 @@ class FourFiveActivity : AppCompatActivity() {
                     this.handler.removeCallbacksAndMessages(null);
 
                     if(button.contentDescription == array[lastClicked].toString()){
+
                         pairsFound++
+
                         if(pairsFound == 10) {
                             val dialog = AlertDialog.Builder(this)
                             var inflater = LayoutInflater.from(this)
                             var layout = inflater.inflate(R.layout.layout_dialog, null)
                             var homeButton = layout.findViewById<ImageButton>(R.id.ib_dialog_home)
+                            var newGameButton = layout.findViewById<ImageButton>(R.id.ib_dialog_new)
                             homeButton.setOnClickListener{
                                 val it = Intent(this, MainActivity::class.java)
                                 startActivity(it)
-
-
+                            }
+                            newGameButton.setOnClickListener{
+                                val it = Intent(this, InstructionActivity::class.java)
+                                it.putExtra("escolha", "2")
+                                startActivity(it)
                             }
                             dialog.setView(layout)
                             dialog.create().show()
                         }
-//                        button.text = "ACHOU"
+
                         button.startAnimation(anim2)
                         buttons[lastClicked].startAnimation(anim2)
-//                        button.startAnimation(anim3)
-//                        buttons[lastClicked].startAnimation(anim3)
+
                         button.isClickable = false
-//                        buttons[lastClicked].text = "ACHOU"
                         buttons[lastClicked].isClickable = false
+
                         clicked = 0
+
                         this.tvClicked.text = "You have found ${pairsFound} pairs!"
+
                     }else {
                         areButtonsClickable(buttons, false)
 
                         this.handler.postDelayed({
                             clicked = 0
-                            //this.tvClicked.text = "Clicked = ${clicked} ${button.text}"
                             buttons[lastClicked].contentDescription = "BACK"
                             button.contentDescription = "BACK"
+
                             buttons[lastClicked].setImageBitmap(null)
                             button.setImageBitmap(null)
+
                             buttons[lastClicked].setBackgroundResource(R.drawable.cardback_small)
                             button.setBackgroundResource(R.drawable.cardback_small)
+
                             areButtonsClickable(buttons, true)
                         }, 1000)
 
@@ -183,8 +198,6 @@ class FourFiveActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
     fun areButtonsClickable(buttons : Array<ImageButton>, status : Boolean) {
 
@@ -201,46 +214,4 @@ class FourFiveActivity : AppCompatActivity() {
 
     }
 
-//    fun getProducts() {
-//
-//        val BASE_URL = "https://shopicruit.myshopify.com/admin/"
-//
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//
-//        val service = retrofit.create(Api::class.java)
-//
-//        val callback = service.getComics("1", "c32313df0d0ef512ca64d5b336a0d7c6")
-//
-//        callback.enqueue(object : Callback<Products> {
-//
-//            override fun onFailure(call: Call<Products>, t: Throwable) {
-//                Log.e("APP_MEMORY", "On failure ${t}")
-//            }
-//
-//            override fun onResponse(call: Call<Products>, response: Response<Products>) {
-//
-//                if(response.isSuccessful) {
-//                    if(response.body() != null) {
-//                        var response = response.body()
-//                        productsArr = response!!.products
-//
-//                        Log.e("APP_MEMORY", "Deu certo ${response}")
-//
-////                        for(product in productsArr){
-////                            Log.e("APP_MEMORY", "Produto = ${product.id}")
-////                        }
-//
-//                    }else {
-//                        Log.e("APP_MEMORY", "response.body() ==  (is) null")
-//                    }
-//                }else {
-//                    Log.e("APP_MEMORY", "response.isSuccessful is not TRUE")
-//                }
-//            }
-//
-//        })
-//    }
 }
