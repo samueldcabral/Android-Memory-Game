@@ -10,234 +10,467 @@
     android:background="@drawable/pattern_repeating"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvClicked"
-        android:text="You have found 0 pairs!"
-        android:textSize="35sp"
-        android:textColor="#FFF"
-        android:fontFamily="@font/courgette"
-        android:layout_marginTop="40sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <LinearLayout
-        android:layout_marginTop="40sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50sp">
 
-        <Button
-            android:id="@+id/bt_56_1"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_home"
+            android:background="@drawable/home2"
+            android:layout_marginStart="4sp"
+            android:layout_marginLeft="4sp"
+            android:layout_width="20sp"
+            android:layout_height="20sp"/>
 
-        <Button
-            android:id="@+id/bt_56_2"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_3"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <TextView
+            android:id="@+id/tvClicked"
+            android:text="You have found 0 pairs!"
+            android:textSize="20sp"
+            android:textColor="#FFF"
+            android:fontFamily="@font/courgette"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_4"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_5"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/bt_56_6"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_7"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_8"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_9"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_10"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/bt_56_11"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_12"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_13"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_14"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
-
-        <Button
-            android:id="@+id/bt_56_15"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_retry"
+            android:background="@drawable/new3"
+            android:layout_marginEnd="4sp"
+            android:layout_marginRight="4sp"
+            android:layout_width="20sp"
+            android:layout_height="20sp"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/bt_56_16"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_17"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_1"
+            android:background="@drawable/cardback_small"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_18"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_19"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_2"
+            android:background="@drawable/cardback_small"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_20"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_3"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_4"
+            android:background="@drawable/cardback_small"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_5"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/bt_56_21"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_22"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_6"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_23"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_24"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_7"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_25"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_8"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_9"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_10"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/bt_56_26"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_27"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_11"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_28"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_29"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <ImageButton
+            android:id="@+id/ib_56_12"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/bt_56_30"
-            android:text="Back"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_13"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_14"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_15"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_16"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_17"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_18"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_19"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_20"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_21"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_22"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_23"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_24"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_25"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_26"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_27"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_28"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_29"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <ImageButton
+            android:id="@+id/ib_56_30"
+            android:background="@drawable/cardback_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ib_56_invi"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
 </LinearLayout>

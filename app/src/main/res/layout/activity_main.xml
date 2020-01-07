@@ -10,50 +10,74 @@
     android:background="@drawable/pattern_repeating"
     tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:background="@drawable/choose"
-        android:layout_marginTop="20sp"
-        android:layout_width="350sp"
-        android:layout_height="200sp"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginTop="140sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/bt_main_goto45"
+                android:background="@drawable/button_easy"
+                android:layout_marginTop="30sp"
+                android:layout_width="300sp"
+                android:layout_height="100sp"/>
 
+            <Button
+                android:id="@+id/bt_main_goto56"
+                android:background="@drawable/button_medium"
+                android:layout_marginTop="20sp"
+                android:layout_width="300sp"
+                android:layout_height="100sp"/>
 
-    <LinearLayout
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <Button
+                android:id="@+id/bt_main_goto58"
+                android:background="@drawable/button_hard"
+                android:layout_marginTop="20sp"
+                android:layout_width="300sp"
+                android:layout_height="100sp"/>
 
-        <Button
-            android:id="@+id/bt_main_goto45"
-            android:background="@drawable/button_easy"
-            android:layout_marginTop="30sp"
-            android:layout_width="300sp"
-            android:layout_height="100sp"/>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_main_goto56"
-            android:background="@drawable/button_medium"
-            android:layout_marginTop="20sp"
-            android:layout_width="300sp"
-            android:layout_height="100sp"/>
-
-        <Button
-            android:id="@+id/bt_main_goto58"
-            android:background="@drawable/button_hard"
-            android:layout_marginTop="20sp"
-            android:layout_width="300sp"
-            android:layout_height="100sp"/>
-
-    </LinearLayout>
-
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
+            <ImageView
+                android:id="@+id/picPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="60sp"
+                android:rotation="355"
+                android:src="@drawable/banner2" />
 
+            <TextView
+                android:id="@+id/picPreviewLbl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="40sp"
+                android:layout_marginLeft="40sp"
+                android:fontFamily="@font/courgette"
+                android:rotation="355"
+                android:shadowColor="#444"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="Choose your mode"
+                android:textColor="#FFF"
+                android:textSize="36sp" />
 
+        </RelativeLayout>
 
+    </RelativeLayout>
 
 </LinearLayout>

@@ -17,51 +17,34 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var btGoTo45 : Button
-    private lateinit var btGoTo56 : Button
-    private lateinit var btGoTo58 : Button
+    private lateinit var btGoTo4by5 : Button
+    private lateinit var btGoTo5by6 : Button
+    private lateinit var btGoTo5by8 : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        var productsArr = intent.getBundleExtra("productArr") as HashMap<Long, String>
-//        var productList = intent.extras?.get("productArr") as HashMap<Long, String>
-//        var randomList : MutableList<Long> = mutableListOf()
-//
-//        for(product in productList) {
-//            randomList.add(product.key)
-//        }
-//
-//        randomList.shuffle()
+        this.btGoTo4by5 = findViewById(R.id.bt_main_goto45)
+        this.btGoTo5by6 = findViewById(R.id.bt_main_goto56)
+        this.btGoTo5by8 = findViewById(R.id.bt_main_goto58)
 
-        this.btGoTo45 = findViewById(R.id.bt_main_goto45)
-        this.btGoTo56 = findViewById(R.id.bt_main_goto56)
-        this.btGoTo58 = findViewById(R.id.bt_main_goto58)
-
-        this.btGoTo45.setOnClickListener{
+        this.btGoTo4by5.setOnClickListener{
             val it = Intent(this, InstructionActivity::class.java)
             it.putExtra("escolha", "2")
-//            it.putExtra("productArr", productList)
             startActivity(it)
-//            finish()
         }
 
-        this.btGoTo56.setOnClickListener{
+        this.btGoTo5by6.setOnClickListener{
             val it = Intent(this, InstructionActivity::class.java)
             it.putExtra("escolha", "3")
-//            it.putExtra("productArr", productList)
             startActivity(it)
-//            finish()
         }
 
-        this.btGoTo58.setOnClickListener{
+        this.btGoTo5by8.setOnClickListener{
             val it = Intent(this, InstructionActivity::class.java)
             it.putExtra("escolha", "4")
-//            it.putExtra("productArr", productList)
             startActivity(it)
-//            finish()
         }
-
     }
 }
