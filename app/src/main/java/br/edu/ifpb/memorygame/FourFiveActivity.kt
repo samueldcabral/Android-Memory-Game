@@ -39,6 +39,7 @@ class FourFiveActivity : AppCompatActivity() {
     private lateinit var buttons : Array<ImageButton>
     private lateinit var productList : HashMap<Long,String>
     private lateinit var anim2 : Animation
+
     private var MATCH_QUANTITY = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -195,6 +196,7 @@ class FourFiveActivity : AppCompatActivity() {
             var layout = inflater.inflate(R.layout.layout_dialog, null)
             var homeButton = layout.findViewById<ImageButton>(R.id.ib_dialog_home)
             var newGameButton = layout.findViewById<ImageButton>(R.id.ib_dialog_new)
+
             homeButton.setOnClickListener{
                 val it = Intent(this, MainActivity::class.java)
                 startActivity(it)

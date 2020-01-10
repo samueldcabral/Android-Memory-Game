@@ -99,7 +99,7 @@ class FiveEightActivity : AppCompatActivity() {
             button.setImageBitmap(null)
         }
 
-        this.tvClicked.text = "You have found ${pairsFound} pairs!"
+        this.tvClicked.text = "You have found ${pairsFound} matches!"
 
         for((index,button) in buttons.withIndex()) {
 
@@ -210,7 +210,7 @@ class FiveEightActivity : AppCompatActivity() {
 
                         clicked = 0
                         lastClicked = ArrayList<Int>()
-                        this.tvClicked.text = "You have found ${pairsFound} pairs!"
+                        this.tvClicked.text = "You have found ${pairsFound} matches!"
 
                     }else {
                         setClickableButtons(buttons, false)
