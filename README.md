@@ -1,4 +1,4 @@
-# Memory Game | Android Kotlin
+<img src="https://i.imgur.com/Y2qp5lq.png" width="1500" alt="splash screen">
 
 This is a memory game app using image resources provided by Shopify.
 The user can select three levels of difficulty: 4x5 grid (Easy), 5x6 grid (Medium) and 5x8 (Hard). 
